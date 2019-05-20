@@ -1,0 +1,8 @@
+//
+// Created by tao on 19-3-29.
+//
+
+#ifndef PERSONAL_FILE_PROTECTOR_MAIN_PASSWD_H
+#define PERSONAL_FILE_PROTECTOR_MAIN_PASSWD_H
+const char *getMainPasswd();
+#endif //PERSONAL_FILE_PROTECTOR_MAIN_PASSWD_H

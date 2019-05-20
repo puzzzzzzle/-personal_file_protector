@@ -1,0 +1,83 @@
+#enum Platform {
+#    PLAT_ALL = 0,
+#    PLAT_CYGWIN = 1,
+#    PLAT_LINIX = 2,
+#
+#    PLAT_NONE =10,
+#};
+#enum CryptType {
+#    ADAPTOR_TYPE_NONE = 0,
+#    //hash 类
+#
+#    ADAPTOR_CRYPT_MD5 = 1,
+#    ADAPTOR_CRYPT_SHA256 = 2,
+#
+#    ADAPTOR_CRYPT_HASH_MAX = 100,
+#
+#    //base64类
+#
+#    ADAPTOR_CRYPT_BASE64_ENCODE = 101,
+#    ADAPTOR_CRYPT_BASE64_DECODE = 102,
+#
+#    ADAPTOR_CRYPT_BASE64_MAX = 200,
+#
+#    //对称加密AES类
+#
+#    ADAPTOR_CRYPT_AES_Encode = 201,
+#
+#    ADAPTOR_CRYPT_AES_MAX = 300,
+#
+#    ADAPTOR_MAX = 99999,
+#}
+name: crypt tests
+nodes:
+- testGroup: md5_str
+  testName: hello
+  platform: 0
+  workMode: 1
+  cryptType: 1
+  source: hello
+  rightResult: 5d41402abc4b2a76b9719d911017c592
+- testGroup: sha256_str
+  testName: hello
+  platform: 0
+  workMode: 1
+  cryptType: 2
+  source: hello
+  rightResult: 2cf24dba5fb0a30e26e83b2ac5b9e29e1b161e5c1fa7425e73043362938b9824
+- testGroup: md5_file
+  testName: win file
+  platform: 1
+  workMode: 2
+  cryptType: 1
+  source: D:\英雄时刻\主界面、结算、签到、破产分享配置表(1).rar
+  rightResult: 41812bfefde876406c8b584c8904b7ef
+- testGroup: sha256_file
+  testName: win file
+  platform: 1
+  workMode: 2
+  cryptType: 2
+  source: D:\英雄时刻\主界面、结算、签到、破产分享配置表(1).rar
+  rightResult: 39405f18b39ede1c8143a60275ad3e69bea45a63a427dc9645b32ded1cb4613e
+- testGroup: md5_file
+  testName: linux file
+  platform: 2
+  workMode: 2
+  cryptType: 1
+  source: /home/tao/图片/2019-02-26 18-09-31屏幕截图.png
+  rightResult: 9c15d6192640ff7d541a1b85bae860e6
+- testGroup: sha256_file
+  testName: linux file
+  platform: 2
+  workMode: 2
+  cryptType: 2
+  source: /home/tao/图片/2019-02-26 18-09-31屏幕截图.png
+  rightResult: 2c2a256e7fa804925a2408cb11391ffbfe6ffaf34a0e26605bd622b7670d0d1d
+
+- testGroup: aes string
+  testName: aes string simple
+  platform: 0
+  workMode: 1
+  cryptType: 201
+  source: puzzzzzzle
+  rightResult: ffffffffffff3cffff5261ffff
